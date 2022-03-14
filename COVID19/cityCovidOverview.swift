@@ -18,7 +18,7 @@ struct CovidOverView : Codable {
     let newFcase : String
 }
 
-struct CityCovidOverVIew  : Codable {
+struct CityCovidOverView  : Codable {
     let korea : CovidOverView
     let seoul : CovidOverView
     let busan : CovidOverView

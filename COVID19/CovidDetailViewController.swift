@@ -17,18 +17,22 @@ class CovidDetailViewController: UITableViewController {
     @IBOutlet weak var overseasInflowCell: UITableViewCell!
     @IBOutlet weak var regionalOutbreakCell: UITableViewCell!
     
+    var covidOverview : CovidOverView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureView()
     }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 0
+    
+    func configureView() {
+        guard let covidOverview = covidOverview else { return }
+        self.title = covidOverview.countryName
+        self.newCaseCell.detailTextLabel?.text = covidOverview.newCase
+        self.totalCaseCell.detailTextLabel?.text = covidOverview.totalCase
+        self.recoverdCell.detailTextLabel?.text = covidOverview.recovered
+        self.deathCell.detailTextLabel?.text = covidOverview.death
+        self.percentageCell.detailTextLabel?.text = covidOverview.percentage
+        self.overseasInflowCell.detailTextLabel?.text = covidOverview.newFcase
+        self.regionalOutbreakCell.detailTextLabel?.text = covidOverview.newCcase
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 0
-    }
-
 }
